@@ -1,7 +1,7 @@
 <!--COMPONENT PRESENTATION-->
 <template>
     <li class="element" v-bind:class="{ favorite: fav }">
-        <img v-bind:src="img"/>
+        <img class="change" v-bind:src="img"/>
         <h3>{{name}}</h3>
 
     </li>
@@ -24,23 +24,36 @@ export default {
 <!--STYLES THAT APPLIES ONLY FOR THIS COMPONENT-->
 <style scoped>
     .element {
-        width: 300px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-content: center;
-        align-items: center;
-        padding: 13px;
-        border-radius: 10px;
-        border: 1px solid black;
-        background-color: rgb(212, 208, 208,0.965);
-        margin-top: 20px;
-
-        float:left;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: initial;
+    align-items: center;
+    padding: 13px;
+    border-radius: 10px;
+    background-color: rgb(212, 208, 208,0.965);
+    margin-top: 20px;
 
     }
-    h2 {
-        color: black;
+    .element:hover{
+
+    background-color: rgba(131, 121, 121, 0.63);
+    color:white;
+    
+    
+    }   
+    .element:hover > .change{
+
+        border: 3px solid rgb(247, 247, 247);
+    
+    }
+
+    
+    h3 {
+        font-size:1.25rem;
+        text-align: center;
+        font-family: Patrick Hand SC;
+
     }
     p {
         color: black;
@@ -48,8 +61,11 @@ export default {
     img {
         width: 96px;
         border-radius: 50px;
-        border: 2px solid white;
+        margin-bottom:10px;
+        border: 3px solid rgb(15, 12, 12);
+
     }
+
 
     .element.favorite {
         background-color: black;

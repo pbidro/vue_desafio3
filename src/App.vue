@@ -2,9 +2,9 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-sm " v-for="(character,index) in rickandmortyData" :key="index"
+    <div class="capsule col-xs-6 col-md-4 col-lg-3 col-xl-2 " v-for="(character,index) in rickandmortyData" :key="index"
 >
-              <LiElement       v-bind:img="character.img"
+              <LiElement  class="crop"     v-bind:img="character.image"
       v-bind:name="character.name"  />
 
     </div>
@@ -15,27 +15,15 @@
 
 <script>
 import LiElement from './components/LiElement'
+import dumpdata from './data.js'
 
 export default {
   name: 'App',
   data() {
     return {
-      rickandmortyData: [
-        {
-          name:'Morty Schmidt',
-          img: 'https://rickandmortyapi.com/api/character/avatar/2.jpeg'
-                  },
-        {          name:'Rick Sanchez',
+      rickandmortyData:  dumpdata }
 
-          img: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg'
-        },
-        {          name:'la hermana',
-
-          img: 'https://rickandmortyapi.com/api/character/avatar/3.jpeg'
-
-        }
-      ]
-    }
+    
   },
   components: {
     LiElement
@@ -44,14 +32,28 @@ export default {
 </script>
 
 <style>
+*{box-sizing: border-box;}
 body{
  background-image: url("./assets/fondo.png");
- background-size: 100%;
-  background-attachment: fixed;
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+background-attachment: fixed;
   }
+
+.capsule{
+    display: flex;
+    justify-content: center;
+}
+
+.crop{
+    overflow:hidden; 
+  white-space:nowrap; 
+}
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   
 }
+
 </style>
