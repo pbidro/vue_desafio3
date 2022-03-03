@@ -1,26 +1,57 @@
-<template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+<template> 
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm " v-for="(character,index) in rickandmortyData" :key="index"
+>
+              <LiElement       v-bind:img="character.img"
+      v-bind:name="character.name"  />
+
+    </div>
+  </div>
+</div>
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import LiElement from './components/LiElement'
 
 export default {
   name: 'App',
+  data() {
+    return {
+      rickandmortyData: [
+        {
+          name:'Morty Schmidt',
+          img: 'https://rickandmortyapi.com/api/character/avatar/2.jpeg'
+                  },
+        {          name:'Rick Sanchez',
+
+          img: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg'
+        },
+        {          name:'la hermana',
+
+          img: 'https://rickandmortyapi.com/api/character/avatar/3.jpeg'
+
+        }
+      ]
+    }
+  },
   components: {
-    HelloWorld
+    LiElement
   }
 }
 </script>
 
 <style>
+body{
+ background-image: url("./assets/fondo.png");
+ background-size: 100%;
+  background-attachment: fixed;
+  }
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  
 }
 </style>
