@@ -6,7 +6,7 @@
       <LiElement  
       v-bind:is_dead="character.status=='Dead'? true : false"  
       v-bind:is_alive="character.status=='Alive'? true : false"  
-      v-bind:is_unknow="character.status=='unknown  '? true : false"  
+      v-bind:is_unknow="character.status=='unknown'? true : false"  
       v-bind:img="character.image"
       v-bind:name="character.name" 
         />

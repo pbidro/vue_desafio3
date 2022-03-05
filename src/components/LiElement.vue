@@ -1,7 +1,9 @@
 <!--COMPONENT PRESENTATION-->
 <template>
     <li class="element" >
+        <div class="element_header">
         <div class="status" v-bind:class="{dead: is_dead,aliv: is_alive,unk: is_unknow}"></div>
+        </div>
         <img class="change" v-bind:src="img"/>
         <h3>{{name}}</h3>
 
@@ -72,14 +74,16 @@ export default {
     }
 
 
-
+.element_header{
+    width: 100%;
+    height: 30px;
+}
     .status{
         width: 20px;
         height: 20px;
         border-radius: 50%;
         border:1px black solid;
-        position:absolute;
-        margin-left: 147px;
+        float:right;
         z-index: 2;
         }
 
