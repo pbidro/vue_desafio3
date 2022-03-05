@@ -1,6 +1,7 @@
 <!--COMPONENT PRESENTATION-->
 <template>
-    <li class="element" v-bind:class="{ favorite: fav }">
+    <li class="element" >
+        <div class="status" v-bind:class="{dead: is_dead,aliv: is_alive,unk: is_unknow}"></div>
         <img class="change" v-bind:src="img"/>
         <h3>{{name}}</h3>
 
@@ -15,9 +16,11 @@ export default {
         img: String,
         name: String,
         number: Number,
-        fav: Boolean,
-        fantasma: Boolean,
-    },
+        is_dead: Boolean,
+        is_alive: Boolean,
+        is_unknow: Boolean
+
+        },
 }
 </script>
 
@@ -33,6 +36,8 @@ export default {
     border-radius: 10px;
     background-color: rgb(212, 208, 208,0.965);
     margin-top: 20px;
+    overflow:hidden; 
+    white-space:nowrap; 
 
     }
     .element:hover{
@@ -67,17 +72,24 @@ export default {
     }
 
 
-    .element.favorite {
-        background-color: black;
+
+    .status{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border:1px black solid;
+        position:absolute;
+        margin-left: 147px;
+        z-index: 2;
+        }
+
+            .status.dead {
+    background-color: rgba(250, 202, 202, 0.965);
     }
-    .element.favorite h2{
-        color: white;
+    .status.aliv {
+    background-color: rgba(201, 238, 206, 0.965);
     }
-    .element.favorite p{
-        color: white;
-    }
-    .element.favorite img{
-        width: 120px;
-        border-radius: 10px;
+        .status.unk {
+    background-color: rgba(232, 190, 243, 0.965);
     }
 </style>

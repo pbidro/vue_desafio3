@@ -2,13 +2,18 @@
 
 <div class="container">
   <div class="row">
-    <div class="capsule col-xs-6 col-md-4 col-lg-3 col-xl-2 " v-for="(character,index) in rickandmortyData" :key="index"
->
-              <LiElement  class="crop"     v-bind:img="character.image"
-      v-bind:name="character.name"  />
+    <div class="capsule col-xs-6 col-md-4 col-lg-3 col-xl-2 " v-for="(character,index) in rickandmortyData" :key="index">
+      <LiElement  
+      v-bind:is_dead="character.status=='Dead'? true : false"  
+      v-bind:is_alive="character.status=='Alive'? true : false"  
+      v-bind:is_unknow="character.status=='unknown  '? true : false"  
+      v-bind:img="character.image"
+      v-bind:name="character.name" 
+        />
 
     </div>
   </div>
+  <div class="footer"></div>
 </div>
 
 </template>
@@ -46,9 +51,9 @@ background-attachment: fixed;
     justify-content: center;
 }
 
-.crop{
-    overflow:hidden; 
-  white-space:nowrap; 
+
+.footer{
+  height: 20px;
 }
 
 #app {
